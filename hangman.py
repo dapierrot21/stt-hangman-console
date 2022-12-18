@@ -1,4 +1,5 @@
 import pyttsx3
+from random_word import RandomWords
 
 
 class Hangman:
@@ -9,10 +10,14 @@ class Hangman:
         self.wrong_guesses = []
 
     # Creates random word
-    def create_random_word():
-        pass
+    def create_random_word(self):
+        r = RandomWords()
+        word = r.get_random_word()
+        # Return a single random word
+        return word
 
     # Checks the string from the player and see if it's part of the random word
+
     def check_player_letter(self, letter):
         pass
 
@@ -32,6 +37,9 @@ class Player:
         self.engine.runAndWait()
 
 
-test = Player('Dean')
+test_speak = Player('Dean')
+test_random_word = Hangman()
 
-test.speak("Hi {player}! welcome to speech to text hangman console game. To play this game you will need to make sure your microphone is on. Using the microphone you will speak your letter to guess the word. Good luck!".format(player=test.name))
+test_speak.speak("Hi {player}! welcome to speech to text hangman console game. To play this game you will need to make sure your microphone is on. Using the microphone you will speak your letter to guess the word. Good luck!".format(player=test_speak.name))
+
+print(test_random_word.create_random_word())
