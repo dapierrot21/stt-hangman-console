@@ -18,7 +18,8 @@ class Hangman:
 
     # Checks the string from the player and see if it's part of the random word
 
-    def check_player_letter(self, letter):
+    def check_player_letter(self, letters):
+        # create random
         pass
 
 
@@ -40,6 +41,28 @@ class Player:
 test_speak = Player('Dean')
 test_random_word = Hangman()
 
-test_speak.speak("Hi {player}! welcome to speech to text hangman console game. To play this game you will need to make sure your microphone is on. Using the microphone you will speak your letter to guess the word. Good luck!".format(player=test_speak.name))
+# test_speak.speak("Hi {player}! welcome to speech to text hangman console game. To play this game you will need to make sure your microphone is on. Using the microphone you will speak your letter to guess the word. Good luck!".format(player=test_speak.name))
 
-print(test_random_word.create_random_word())
+# print(test_random_word.create_random_word())
+
+test_letter = "i"
+
+random_word = test_random_word.create_random_word()
+letters_for_random_word = []
+place_holder_for_correct_letters = [[] for word in random_word]
+
+
+# place the letters of the word in a list so I can access the index.
+for letter in random_word:
+    letters_for_random_word.append(letter)
+
+indices = [i for i, x in enumerate(
+    letters_for_random_word) if x == test_letter]
+
+
+for index in indices:
+    place_holder_for_correct_letters[index] += test_letter
+
+
+print(place_holder_for_correct_letters)
+print(letters_for_random_word)
