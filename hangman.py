@@ -24,15 +24,15 @@ class Hangman:
     def check_player_letter(self, player_guess):
         if player_guess not in self.letters_for_random_word:
             self.wrong_guesses.append(player_guess)
-        elif player_guess in self.correct_letters and player_guess in self.wrong_guesses:
-            print("You already choose that letter.")
-        else:
-            if player_guess in self.letters_for_random_word:
-                indices = [i for i, x in enumerate(
-                    self.letters_for_random_word) if x == player_guess]
-                for index in indices:
-                    self.place_holder_for_correct_letters[index] += player_guess
-                    self.correct_letters.append(player_guess)
+
+        indices = [i for i, x in enumerate(
+            self.letters_for_random_word) if x == player_guess]
+        for index in indices:
+            if player_guess in self.place_holder_for_correct_letters[index]:
+                print("You already choose this letter.")
+            else:
+                self.place_holder_for_correct_letters[index] += player_guess
+                self.correct_letters.append(player_guess)
 
     def greeting_of_the_day(self, name):
         hour = datetime.datetime.now().hour
