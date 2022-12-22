@@ -25,7 +25,7 @@ if __name__ == "__main__":
         print("Welcome to Speech-to-Text Hangman Console Game.")
         print("Letters like \"c\", \"u\", \"a\", \"h\" can sound like a word and not the letter your trying.")
         print("So tackle this problem I suggest that you use word instead of letter.")
-        print("Ex: letter \"c\" is best heard when \"cat\" is said.")
+        print("Ex: Letter \"c\" is best heard when \"cat\" is said.")
         print("\n")
 
         print("The number of guesses you have is based on the length of the word.")
