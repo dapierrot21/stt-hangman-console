@@ -1,5 +1,6 @@
 import datetime
 from random_word import RandomWords
+from PyDictionary import PyDictionary
 
 
 class Hangman:
@@ -17,6 +18,15 @@ class Hangman:
         r = RandomWords()
         word = r.get_random_word()
         return word
+
+    def meaning_of_word(self, word):
+        try:
+            py = PyDictionary()
+            meaning_of_word = py.meaning(
+                word, disable_errors=True)
+        except None:
+            return "Sorry having trouble finding the meaning of this word. Good luck."
+        return meaning_of_word
 
     def check_player_letter(self, player_guess):
         if player_guess in self.wrong_guesses:

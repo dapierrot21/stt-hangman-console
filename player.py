@@ -11,9 +11,8 @@ class Player:
 
     def speak(self, text):
         self.engine.say(text)
-        self.engine.runAndWait()
 
-    def takeCommand(self):
+    def take_command(self):
         r = sr.Recognizer()
         with sr.Microphone() as source:
             print("\n")

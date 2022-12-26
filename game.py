@@ -1,4 +1,3 @@
-from PyDictionary import PyDictionary
 from player import Player
 from hangman import Hangman
 
@@ -9,15 +8,6 @@ if __name__ == "__main__":
 
     number_of_guesses = len(hangman.random_word)
     count = 0  # is going to be the sum of the len(wrong_guess).
-
-    def meaning_of_word(word):
-        try:
-            py = PyDictionary()
-            meaning_of_word = py.meaning(
-                hangman.random_word, disable_errors=True)
-        except None:
-            print("Sorry having trouble finding the meaning of this word. Good luck.")
-        return meaning_of_word
 
     while count < number_of_guesses:
 
@@ -35,12 +25,11 @@ if __name__ == "__main__":
         print("\n")
 
         print("Now let\'s guess a letter. I suggest using a word that has the target letter as the first letter in that word.")
-        print(hangman.random_word)
 
         while count != number_of_guesses:
             print("Meaning of the word: {meaning}".format(
-                meaning=meaning_of_word(hangman.random_word)))
-            letter = player.takeCommand()
+                meaning=hangman.meaning_of_word(hangman.random_word)))
+            letter = player.take_command()
             results = hangman.check_player_letter(letter)
             if len(hangman.correct_letters) == len(hangman.letters_for_random_word):
                 print("Congrats! you have won. The word is {word}.".format(
