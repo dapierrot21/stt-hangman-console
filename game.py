@@ -30,7 +30,7 @@ if __name__ == "__main__":
             print("Meaning of the word: {meaning}".format(
                 meaning=hangman.meaning_of_word(hangman.random_word)))
             letter = player.take_command()
-            results = hangman.check_player_letter(letter)
+            hangman.check_player_letter(letter)
             if len(hangman.correct_letters) == len(hangman.letters_for_random_word):
                 print("Congrats! you have won. The word is {word}.".format(
                     word=hangman.random_word))
